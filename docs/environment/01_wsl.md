@@ -35,8 +35,8 @@ systemd=true
 
 ```shell
 ##### powershell なり コマンドラインで実行 #####
-wsl --shutdown
-wsl
+wsl --terminate Debian
+wsl -d Debian
 ```
 
 ## WSL環境のリセット
