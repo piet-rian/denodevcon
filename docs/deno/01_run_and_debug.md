@@ -1,12 +1,26 @@
-# Deno (run, debug, and Library)
+# Deno (アプリケーションの起動とデバッグ方法)
 
-devcontainerとして構築された時点でdenoの環境構築も完了している。
+## アプリケーションの起動
 
-そのため、定義済みtaskやライブラリ追加時の注意点等を記載。
+```shell
+##### devcontainer内で実行 #####
+deno task start
+```
 
-## `main.ts`
+## アプリケーションのデバッグ
 
-下記のタスク等でも参照しているエントリポイントなのでファイル名を変更したり、ファイルを削除したりしないこと。
+### アプリケーションをデバッグ可能な状態で起動
+
+```shell
+##### devcontainer内で実行 #####
+deno task debug
+```
+
+### デバッガの起動(vscode)
+
+実行とデバッグのビューから `Attach Deno` を選択してデバッグの開始(`F5`)を行う。
+
+なお、アプリケーションの起動と順番が前後しても問題ない。
 
 ## 定義済み Task
 
@@ -28,21 +42,9 @@ IDE上で import 周りでエラーが出ている場合に試すとよいでし
 - vscode上で設定したブレークポイントで止まるようになります。
   - vscode側からデバッガをアタッチする必要がある
 
-## デバッガの実行(vscode)
+## `main.ts`
 
-実行とデバッグのビューから `Attach Deno` を選択してデバッグの開始(`F5`)を行う。
-
-`deno task debug` で起動すれば、デバッガが自動的に(再)接続する。
-
-厳密には `--inspect` オプション付きで起動してればtask経由でなくても良い。
-
-## ライブラリの導入について
-
-- 基本的には jsr.io にあるライブラリを採用する
-- deno.land/x および npm 上のライブラリは代替ライブラリが jrs.io に存在しない場合のみ
-  - 特に npm は慎重
-  - npm上のライブラリは基本的にはnodejs環境用のライブラリ
-  - denoがnpm上のライブラリも動くと謳っているが、互換性が100%確保できているわけではない
+下記のタスク等でも参照しているエントリポイントなのでファイル名を変更したり、ファイルを削除したりしないこと。
 
 ## 参考資料
 
@@ -51,7 +53,3 @@ IDE上で import 周りでエラーが出ている場合に試すとよいでし
   - <https://docs.deno.com/runtime/manual/tools/run>
   - <https://docs.deno.com/runtime/manual/basics/debugging_your_code>
   - <https://docs.deno.com/runtime/manual/references/vscode_deno/#using-the-debugger>
-- ライブラリ
-  - <https://jsr.io/>
-  - <https://deno.land/x>
-  - <https://www.npmjs.com/>
