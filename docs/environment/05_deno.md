@@ -28,23 +28,13 @@ IDE上で import 周りでエラーが出ている場合に試すとよいでし
 - vscode上で設定したブレークポイントで止まるようになります。
   - vscode側からデバッガをアタッチする必要がある
 
-## デバッガ設定(vscode)
+## デバッガの実行(vscode)
 
-`.vscode` フォルダ自体が .gitignore指定される可能性があるため、以下に `launch.json` に追加するための最小の構成を記載。
+実行とデバッグのビューから `Attach Deno` を選択してデバッグの開始(`F5`)を行う。
 
-```jsonc
-// configurations内に追加
-{
-    "request": "attach",
-    "name": "Attach Deno",
-    "type": "node",
-    "cwd": "${workspaceFolder}",
-    "env": {},
-    "restart": true
-}
-```
+`deno task debug` で起動すれば、デバッガが自動的に(再)接続する。
 
-これを追加した上で、実行とデバッグのビューから `Attach Deno` を起動すると、デバッガが立ち上がり、既存のDenoのプロセスに接続する。デバッガを立ち上げたあとで実行されたプロセスにも接続してくれる。
+厳密には `--inspect` オプション付きで起動してればtask経由でなくても良い。
 
 ## ライブラリの導入について
 
