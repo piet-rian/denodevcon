@@ -3,5 +3,9 @@
     "start": "deno run -A main.ts",
     "cache": "deno cache main.ts",
     "debug": "deno run --watch --inspect -A main.ts"
+  },
+  "imports": {
+    "@hectorm/otpauth": "jsr:@hectorm/otpauth@^9.3.1",
+    "@libs/qrcode": "jsr:@libs/qrcode@^1.2.2"
   }
 }

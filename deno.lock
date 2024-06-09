@@ -1,0 +1,24 @@
+{
+  "version": "3",
+  "packages": {
+    "specifiers": {
+      "jsr:@hectorm/otpauth@^9.3.1": "jsr:@hectorm/otpauth@9.3.1",
+      "jsr:@libs/qrcode@^1.2.2": "jsr:@libs/qrcode@1.2.2"
+    },
+    "jsr": {
+      "@hectorm/otpauth@9.3.1": {
+        "integrity": "79d5a5f2cb6874451fcf7f903bc8b5cfcf8dbc8f20a2fb4fd63c975afd84928b"
+      },
+      "@libs/qrcode@1.2.2": {
+        "integrity": "27840b8a9388e30fc4fc800fb02bef4793f7f4823ae933fe057a1bd5f41288bd"
+      }
+    }
+  },
+  "remote": {},
+  "workspace": {
+    "dependencies": [
+      "jsr:@hectorm/otpauth@^9.3.1",
+      "jsr:@libs/qrcode@^1.2.2"
+    ]
+  }
+}
