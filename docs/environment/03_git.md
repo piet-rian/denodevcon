@@ -2,9 +2,17 @@
 
 ## 手順
 
-※gitそのもののインストールはwslのセットアップ内で完了しているため省略
+### git の導入
 
-### ssh-keyの作成
+```shell
+##### debian(WSL)内で実行 #####
+# git のインストール
+sudo apt install git
+# インストール完了確認
+git -v
+```
+
+### ssh-keyの作成 (github接続用)
 
 github のドキュメントに従ってssh鍵を準備する
 

@@ -20,14 +20,23 @@ sudo apt update
 sudo apt upgrade
 ```
 
-### git の導入
+### systemd の有効化
+
+※一部のサービスをWSL開始時に自動起動するために必要
+
+**debian(WSL)内** の `/etc/wsl.conf` に以下の記述を追加(ファイル自体がない場合は作成する)(要sudo)
+
+```bash
+[boot]
+systemd=true
+```
+
+`/etc/wsl.conf` にWSLを再起動する
 
 ```shell
-##### debian(WSL)内で実行 #####
-# git のインストール
-sudo apt install git
-# インストール完了確認
-git -v
+##### powershell なり コマンドラインで実行 #####
+wsl --shutdown
+wsl
 ```
 
 ## WSL環境のリセット
@@ -43,3 +52,4 @@ wsl --install Debian
 ## 参考資料
 
 - https://learn.microsoft.com/ja-jp/windows/wsl/install
+- https://learn.microsoft.com/ja-jp/windows/wsl/wsl-config#systemd-support

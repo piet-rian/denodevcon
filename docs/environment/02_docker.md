@@ -48,6 +48,9 @@ sudo usermod -aG docker $USER
 
 # docker のサービスを起動
 sudo service docker restart
+
+# WSL起動時に docker サービスが自動起動するようにする
+sudo systemctl enable docker
 ```
 
 
