@@ -8,7 +8,7 @@ devcontainer を使うにはvscodeが必要であるため、vscodeの導入及�
 
 windows環境にインストールする。
 
-インストーラーは https://code.visualstudio.com/download から。
+インストーラーは <https://code.visualstudio.com/download> から。
 
 ### 拡張機能の導入
 

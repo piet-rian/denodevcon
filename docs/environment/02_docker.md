@@ -4,7 +4,7 @@ Docker Desktop は商用利用時にライセンス云々の話が出るため D
 
 ## 手順
 
-基本的には https://docs.docker.com/engine/install/debian/#install-using-the-repository の手順の通り
+基本的には <https://docs.docker.com/engine/install/debian/#install-using-the-repository> の手順の通り
 
 ### apt に docker 用のリポジトリを追加する
 
@@ -36,7 +36,7 @@ docker -v
 
 ### 追加設定
 
-基本的に https://docs.docker.com/engine/install/linux-postinstall/ の内容と同じ
+基本的に <https://docs.docker.com/engine/install/linux-postinstall/> の内容と同じ
 
 ```shell
 ##### debian(WSL)内で実行 #####
@@ -52,7 +52,6 @@ sudo service docker restart
 # WSL起動時に docker サービスが自動起動するようにする
 sudo systemctl enable docker
 ```
-
 
 ### 動作確認
 
@@ -79,5 +78,5 @@ docker compose version
 
 ## 参考資料
 
-- https://docs.docker.com/engine/install/debian/
-- https://docs.docker.com/engine/install/linux-postinstall/
+- <https://docs.docker.com/engine/install/debian/>
+- <https://docs.docker.com/engine/install/linux-postinstall/>

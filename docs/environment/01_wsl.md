@@ -51,5 +51,5 @@ wsl --install Debian
 
 ## 参考資料
 
-- https://learn.microsoft.com/ja-jp/windows/wsl/install
-- https://learn.microsoft.com/ja-jp/windows/wsl/wsl-config#systemd-support
+- <https://learn.microsoft.com/ja-jp/windows/wsl/install>
+- <https://learn.microsoft.com/ja-jp/windows/wsl/wsl-config#systemd-support>
