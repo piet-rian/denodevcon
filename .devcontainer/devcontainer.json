@@ -22,8 +22,11 @@
 	"customizations": {
 		"vscode": {
 			"extensions": [
-				// ここに直接拡張機能のIDを追加しても良い
-				"oderwat.indent-rainbow"
+				"oderwat.indent-rainbow",
+				"DavidAnson.vscode-markdownlint",
+				"mhutchie.git-graph",
+				"mechatroner.rainbow-csv",
+				"usernamehw.errorlens"
 			]
 		}
 	}
