@@ -3,7 +3,9 @@
   "packages": {
     "specifiers": {
       "jsr:@hectorm/otpauth@^9.3.1": "jsr:@hectorm/otpauth@9.3.1",
-      "jsr:@libs/qrcode@^1.2.2": "jsr:@libs/qrcode@1.2.2"
+      "jsr:@libs/qrcode@^1.2.2": "jsr:@libs/qrcode@1.2.2",
+      "jsr:@std/assert@^0.226.0": "jsr:@std/assert@0.226.0",
+      "jsr:@std/internal@^1.0.0": "jsr:@std/internal@1.0.0"
     },
     "jsr": {
       "@hectorm/otpauth@9.3.1": {
@@ -11,6 +13,15 @@
       },
       "@libs/qrcode@1.2.2": {
         "integrity": "27840b8a9388e30fc4fc800fb02bef4793f7f4823ae933fe057a1bd5f41288bd"
+      },
+      "@std/assert@0.226.0": {
+        "integrity": "0dfb5f7c7723c18cec118e080fec76ce15b4c31154b15ad2bd74822603ef75b3",
+        "dependencies": [
+          "jsr:@std/internal@^1.0.0"
+        ]
+      },
+      "@std/internal@1.0.0": {
+        "integrity": "ac6a6dfebf838582c4b4f61a6907374e27e05bedb6ce276e0f1608fe84e7cd9a"
       }
     }
   },
@@ -18,7 +29,8 @@
   "workspace": {
     "dependencies": [
       "jsr:@hectorm/otpauth@^9.3.1",
-      "jsr:@libs/qrcode@^1.2.2"
+      "jsr:@libs/qrcode@^1.2.2",
+      "jsr:@std/assert@^0.226.0"
     ]
   }
 }
