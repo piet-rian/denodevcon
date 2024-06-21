@@ -1,5 +1,6 @@
-function handler(_req: Request): Response {
-  return new Response("Hello, Deno!");
-}
+import { Hono } from '@hono/hono'
+const app = new Hono()
 
-Deno.serve(handler);
+app.get('/', (c) => c.text('Hono!'))
+
+export default app
