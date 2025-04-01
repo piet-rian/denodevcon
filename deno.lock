@@ -1,41 +1,38 @@
 {
-  "version": "3",
-  "packages": {
-    "specifiers": {
-      "jsr:@hectorm/otpauth@^9.3.1": "jsr:@hectorm/otpauth@9.3.1",
-      "jsr:@hono/hono@^4.4.6": "jsr:@hono/hono@4.4.6",
-      "jsr:@libs/qrcode@^1.2.2": "jsr:@libs/qrcode@1.2.2",
-      "jsr:@std/assert@^0.226.0": "jsr:@std/assert@0.226.0",
-      "jsr:@std/internal@^1.0.0": "jsr:@std/internal@1.0.0"
+  "version": "4",
+  "specifiers": {
+    "jsr:@hectorm/otpauth@^9.4.0": "9.4.0",
+    "jsr:@hono/hono@^4.7.5": "4.7.5",
+    "jsr:@libs/qrcode@^2.0.1": "2.0.1",
+    "jsr:@std/assert@^1.0.12": "1.0.12",
+    "jsr:@std/internal@^1.0.6": "1.0.6"
+  },
+  "jsr": {
+    "@hectorm/otpauth@9.4.0": {
+      "integrity": "486cb01ee0334406199f46705179f46688473c9a1e0628ca4547e436ef46a6c5"
     },
-    "jsr": {
-      "@hectorm/otpauth@9.3.1": {
-        "integrity": "79d5a5f2cb6874451fcf7f903bc8b5cfcf8dbc8f20a2fb4fd63c975afd84928b"
-      },
-      "@hono/hono@4.4.6": {
-        "integrity": "aa557ca9930787ee86b9ca1730691f1ce1c379174c2cb244d5934db2b6314453"
-      },
-      "@libs/qrcode@1.2.2": {
-        "integrity": "27840b8a9388e30fc4fc800fb02bef4793f7f4823ae933fe057a1bd5f41288bd"
-      },
-      "@std/assert@0.226.0": {
-        "integrity": "0dfb5f7c7723c18cec118e080fec76ce15b4c31154b15ad2bd74822603ef75b3",
-        "dependencies": [
-          "jsr:@std/internal@^1.0.0"
-        ]
-      },
-      "@std/internal@1.0.0": {
-        "integrity": "ac6a6dfebf838582c4b4f61a6907374e27e05bedb6ce276e0f1608fe84e7cd9a"
-      }
+    "@hono/hono@4.7.5": {
+      "integrity": "36a7e1b3db8a58e5dc2bd36a76be53346f0966e04c24c635c4d6f58875575b0a"
+    },
+    "@libs/qrcode@2.0.1": {
+      "integrity": "04a90d388400892ada9cdc95b3257466f319050e8f1d747d3d629e51e39d6eaf"
+    },
+    "@std/assert@1.0.12": {
+      "integrity": "08009f0926dda9cbd8bef3a35d3b6a4b964b0ab5c3e140a4e0351fbf34af5b9a",
+      "dependencies": [
+        "jsr:@std/internal"
+      ]
+    },
+    "@std/internal@1.0.6": {
+      "integrity": "9533b128f230f73bd209408bb07a4b12f8d4255ab2a4d22a1fd6d87304aca9a4"
     }
   },
-  "remote": {},
   "workspace": {
     "dependencies": [
-      "jsr:@hectorm/otpauth@^9.3.1",
-      "jsr:@hono/hono@^4.4.6",
-      "jsr:@libs/qrcode@^1.2.2",
-      "jsr:@std/assert@^0.226.0"
+      "jsr:@hectorm/otpauth@^9.4.0",
+      "jsr:@hono/hono@^4.7.5",
+      "jsr:@libs/qrcode@^2.0.1",
+      "jsr:@std/assert@^1.0.12"
     ]
   }
 }

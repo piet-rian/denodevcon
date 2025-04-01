@@ -4,10 +4,13 @@
     "cache": "deno cache main.ts",
     "debug": "deno serve --port 8000 --watch --inspect -A main.ts"
   },
+  // 最新版の確認
+  // `deno outdated`
+  // 更新できるものがない場合は何も表示されない
   "imports": {
-    "@hectorm/otpauth": "jsr:@hectorm/otpauth@^9.3.1",
-    "@hono/hono": "jsr:@hono/hono@^4.4.6",
-    "@libs/qrcode": "jsr:@libs/qrcode@^1.2.2",
-    "@std/assert": "jsr:@std/assert@^0.226.0"
+    "@hectorm/otpauth": "jsr:@hectorm/otpauth@^9.4.0",
+    "@hono/hono": "jsr:@hono/hono@^4.7.5",
+    "@libs/qrcode": "jsr:@libs/qrcode@^2.0.1",
+    "@std/assert": "jsr:@std/assert@^1.0.12"
   }
 }
