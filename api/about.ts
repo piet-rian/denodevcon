@@ -1,10 +1,12 @@
 import { Context } from "@hono/hono";
 
-export default function AboutGet(c:Context): Response {
-    return c.json(
-        {
-            name: 'foobars',
-            site: 'norhe pole'
-        }
-    )
+export function Get(c: Context): Response {
+  console.log("GET /about");
+
+  return c.json(
+    {
+      name: "foobars",
+      site: "norhe pole",
+    },
+  );
 }
