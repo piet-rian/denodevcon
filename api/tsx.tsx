@@ -1,14 +1,14 @@
 import { Context } from "@hono";
 
-const Heading = () => {
-  return <h1>Hello Hono!!!</h1>;
+const Heading = (props: { msg: string }) => {
+  return <h1>Hello {props.msg}!</h1>;
 };
 
-const View = () => {
+const View = (props: { msg: string }) => {
   return (
     <html>
       <body>
-        <Heading />
+        <Heading msg={props.msg} />
       </body>
     </html>
   );
@@ -17,5 +17,7 @@ const View = () => {
 export function Get(c: Context): Response | Promise<Response> {
   console.log("GET /tsx");
 
-  return c.html(<View />);
+  const name = c.req.query("name") || "Hono TSX";
+
+  return c.html(<View msg={name} />);
 }
