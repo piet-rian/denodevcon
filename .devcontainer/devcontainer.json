@@ -1,39 +1,43 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/docker-outside-of-docker-compose
 {
-	"name": "Docker from Docker Compose",
-	"dockerComposeFile": "compose.yaml",
-	"service": "app",
-	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "name": "Docker from Docker Compose",
+  "dockerComposeFile": "compose.yaml",
+  "service": "devcontainer", // compose.yaml内のサービス名を指定
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
 
-	// Use this environment variable if you need to bind mount your local source code into a new container.
-	"remoteEnv": {
-		"LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}"
-	},
+  // Use this environment variable if you need to bind mount your local source code into a new container.
+  "remoteEnv": {
+    "LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}"
+  },
 
-	"features": {
-		"ghcr.io/devcontainers/features/docker-outside-of-docker:latest": {
-			"enableNonRootDocker": "true"
-		},
-		"ghcr.io/devcontainers-community/features/deno:latest": {}
-	},
-	"customizations": {
-		"vscode": {
-			"extensions": [
-				"oderwat.indent-rainbow",
-				"DavidAnson.vscode-markdownlint",
-				"mhutchie.git-graph",
-				"mechatroner.rainbow-csv",
-				"usernamehw.errorlens"
-			]
-		}
-	}
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [],
+  // 開発環境に追加する機能を指定
+  "features": {
+    // WLS2上のDockerデーモンを使用可能にする
+    "ghcr.io/devcontainers/features/docker-outside-of-docker:latest": {
+      "enableNonRootDocker": "true" // 非rootユーザーでdockerコマンドを使用可能にする
+    },
+    // Denoをインストール
+    "ghcr.io/devcontainers-community/features/deno:latest": {}
+  },
+  "customizations": {
+    "vscode": {
+      // 必ず導入する拡張機能を指定
+      "extensions": [
+        "oderwat.indent-rainbow",
+        "DavidAnson.vscode-markdownlint",
+        "mhutchie.git-graph",
+        "mechatroner.rainbow-csv",
+        "usernamehw.errorlens"
+      ]
+    }
+  }
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  // "forwardPorts": [],
 
-	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "docker --version",
+  // Use 'postCreateCommand' to run commands after the container is created.
+  // "postCreateCommand": "docker --version",
 
-	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-	// "remoteUser": "root"
+  // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+  // "remoteUser": "root"
 }
