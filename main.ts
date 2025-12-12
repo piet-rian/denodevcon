@@ -1,8 +1,8 @@
-import { Context, Hono } from "@hono/hono";
-// * deno & jsrのhono の場合、ミドルウェアのインポートは `@hono/hono/*` となる
-import { logger } from "@hono/hono/logger";
-import { etag } from "@hono/hono/etag";
-import { prettyJSON } from "@hono/hono/pretty-json";
+import { Context, Hono } from "@hono";
+// * deno & jsrのhono の場合、ミドルウェアのインポートは `@hono/*` となる
+import { logger } from "@hono/logger";
+import { etag } from "@hono/etag";
+import { prettyJSON } from "@hono/pretty-json";
 import * as about from "./api/about.ts";
 import * as tsx from "./api/tsx.tsx";
 
