@@ -1,4 +1,4 @@
-import { Context } from "@hono/hono";
+import { Context } from "@hono";
 
 const Heading = () => {
   return <h1>Hello Hono!!!</h1>;

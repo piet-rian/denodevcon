@@ -1,4 +1,4 @@
-import { Context } from "@hono/hono";
+import { Context } from "@hono";
 
 export function Get(c: Context): Response {
   console.log("GET /about");
