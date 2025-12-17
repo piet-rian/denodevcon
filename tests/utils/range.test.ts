@@ -1,5 +1,5 @@
 import { assert, assertFalse } from "@std/assert";
-import { RangeCC, RangeCO, RangeOC, RangeOO } from "../../utils/range.ts";
+import { RangeCC, RangeCO, RangeOC, RangeOO } from "@utils/range.ts";
 
 Deno.test("oo", () => {
   const range = new RangeOO(0, 10);
