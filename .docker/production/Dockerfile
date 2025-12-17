@@ -6,10 +6,13 @@ FROM denoland/deno:debian-${DENO_VERSION} AS builder
 
 # 作業ディレクトリを設定
 WORKDIR /app
+ENV DENO_DIR=/deno-dir
 
-# 依存関係のインストールとビルド
+# 依存関係のインストールとキャッシュ
 COPY . .
-RUN deno install --entrypoint main.ts
+RUN deno cache main.ts
+# 依存関係の所有権をnonrootに変更 (distroless には chown コマンドがないため)
+RUN chown -R 65532:65532 /deno-dir /app
 
 
 ### 本番環境ステージ ###
@@ -29,10 +32,11 @@ EXPOSE 8000
 # binステージからDenoバイナリをコピー
 COPY --from=bin /deno /usr/local/bin/deno
 
-# builderステージから必要なファイルをコピー
-# TODO: builderステージで行ったキャッシュが本番環境ステージに引き継がれない問題の解決
-# 現状、この問題によりコンテナ起動時に再度依存関係の解決が発生してしまう(具体的にはhono系統のモジュール)
-# プロジェクトルート以外の場所にキャッシュが保存されている？
+# 依存関係のキャッシュをコピー
+ENV DENO_DIR=/deno-dir
+COPY --from=builder /deno-dir /deno-dir
+
+# アプリケーションコードをコピー
 COPY --from=builder /app .
 
 # アプリケーションのエントリポイント・起動コマンドを指定
