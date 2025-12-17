@@ -1,18 +1,23 @@
 ### 本番環境用のDockerイメージを作成するためのDockerfile
+
+## 定数定義
 ARG DENO_VERSION=2.6.1
+ARG APP_DIR=/app
+ARG DENO_DIR=/deno-dir
+ARG NONROOT_UID=65532
 
 ### ビルドステージ ###
 FROM denoland/deno:debian-${DENO_VERSION} AS builder
 
 # 作業ディレクトリを設定
-WORKDIR /app
-ENV DENO_DIR=/deno-dir
+WORKDIR ${APP_DIR}
+ENV DENO_DIR=${DENO_DIR}
 
 # 依存関係のインストールとキャッシュ
 COPY . .
 RUN deno cache main.ts
 # 依存関係の所有権をnonrootに変更 (distroless には chown コマンドがないため)
-RUN chown -R 65532:65532 /deno-dir /app
+RUN chown -R ${NONROOT_UID}:${NONROOT_UID} ${DENO_DIR} ${APP_DIR}
 
 
 ### 本番環境ステージ ###
@@ -24,7 +29,7 @@ FROM denoland/deno:bin-${DENO_VERSION} AS bin
 FROM gcr.io/distroless/cc-debian13:nonroot AS production
 
 # 作業ディレクトリを設定
-WORKDIR /app
+WORKDIR ${APP_DIR}
 
 # ポートを公開
 EXPOSE 8000
@@ -33,11 +38,11 @@ EXPOSE 8000
 COPY --from=bin /deno /usr/local/bin/deno
 
 # 依存関係のキャッシュをコピー
-ENV DENO_DIR=/deno-dir
-COPY --from=builder /deno-dir /deno-dir
+ENV DENO_DIR=${DENO_DIR}
+COPY --from=builder ${DENO_DIR} ${DENO_DIR}
 
 # アプリケーションコードをコピー
-COPY --from=builder /app .
+COPY --from=builder ${APP_DIR} .
 
 # アプリケーションのエントリポイント・起動コマンドを指定
 # deno.jsonc に定義された start タスクを実行
