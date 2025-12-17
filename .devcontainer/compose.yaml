@@ -1,5 +1,4 @@
-### version指定は不要になった
-# version: '3'
+### devcontainer 用の Docker Compose 定義ファイル ###
 
 # name指定することで生成されるコンテナ名をある程度制御可能
 # {name指定内容}-{service名} の形式にできる
@@ -19,6 +18,10 @@ services:
     # Overrides default command so things don't shut down after the process ends.
     entrypoint: /usr/local/share/docker-init.sh
     command: sleep infinity
+
+    # devcontainer 内から、動作確認用で動いている本番コンテナー等にアクセスするための設定
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
     # Uncomment the next four lines if you will use a ptrace-based debuggers like C++, Go, and Rust.
     # cap_add:
