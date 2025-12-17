@@ -1,0 +1,18 @@
+### 本番環境用のDocker Image をビルドするための設定ファイル
+# プロジェクトルートディレクトリで以下のコマンドを実行
+#   docker compose -f '.docker/production/compose.yaml' build
+# あるいは、VSCode 上で、本ファイルを開いて右クリック -> "Compose Up" を選択
+services:
+  honot:
+    build:
+      context: ../../
+      dockerfile: .docker/production/Dockerfile
+    image: honot:production
+    ports:
+      - "8000:8000"
+    environment:
+      - DENO_ENV=production
+
+### memo
+# http://$(/sbin/ip route | awk '/default/ {print $3}'):8000 で devcontainer 側からアクセス可能になる
+# TODO: 外部(WLS, ホストOS)からのアクセス手段は検討中
