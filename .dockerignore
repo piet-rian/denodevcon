@@ -1,0 +1,10 @@
+# .系列を除外
+.devcontainer
+.github
+.vscode
+.git
+.gitignore
+# プロダクトからドキュメント、テストコードを除外
+docs
+*.md
+tests
