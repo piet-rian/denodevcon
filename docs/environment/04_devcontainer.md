@@ -33,11 +33,11 @@ windows環境にインストールする。
 ```shell
 ##### devcontainer内で実行 #####
 ## docker が動くかどうか
-# vsc-... といった devcontainer用のイメージが見えていたら成功
+# `projectname-devcontainer` という devcontainer用のイメージが見えていたら成功
 docker image ls
 
-## compose が動くかどうか 
-# ***_devcontainer   running(1) となっていればOK
+## compose が動くかどうか
+# `projectname running(1)` となっていればOK
 docker compose -f .devcontainer/docker-compose.yml ls
 
 ## githubにつながるかどうか
