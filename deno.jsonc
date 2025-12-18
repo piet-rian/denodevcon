@@ -9,11 +9,14 @@
   // `deno outdated`
   // 更新できるものがない場合は何も表示されない
   "imports": {
+    // プロジェクト内のモジュールを参照するためのエイリアス
+    "@utils/": "./utils/",
+    "@api/": "./api/",
+    // 以下、外部ライブラリ
     "@hectorm/otpauth": "jsr:@hectorm/otpauth@^9.4.1",
     "@hono": "jsr:@hono/hono@^4.11.1",
     "@libs/qrcode": "jsr:@libs/qrcode@^3.0.1",
-    "@std/assert": "jsr:@std/assert@^1.0.16",
-    "@utils/": "./utils/"
+    "@std/assert": "jsr:@std/assert@^1.0.16"
   },
 
   // JSX を使うための設定
