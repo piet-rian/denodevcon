@@ -23,6 +23,9 @@ curl http://host.docker.internal:8000
 
 # WSL2 環境内から
 curl http://localhost:8000
+
+# ホストOS(Windows) 環境内から
+curl http://localhost:8000
 ```
 
 ## 内部動作について
