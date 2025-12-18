@@ -1,6 +1,6 @@
 <!--
     このファイルは github copilot 向けの指示をまとめたもの
-    プログラマー向けのドキュメントは `/docs` 以下を参照
+    プログラマー向けのドキュメントは `/#docs` 以下を参照
 
     本ファイルの詳細:
     https://docs.github.com/ja/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot?tool=vscode
@@ -41,7 +41,7 @@
 
 - export する関数名は HTTP の Method に合わせる
 
-### `/docs`
+### `/#docs`
 
 - プログラマ向けのドキュメントを格納
   - 環境構築手順、仕様書
