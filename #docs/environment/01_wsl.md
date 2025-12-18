@@ -7,7 +7,7 @@
 ubuntsu でも良いが今回は debian を導入する。
 
 ```powershell
-##### powershell なり コマンドラインで実行 #####
+##### ホストOS(Windows)上で実行 #####
 # windows に wsl を導入すると同時に debian のディストリビューションの導入
 wsl --install -d Debian
 ```
@@ -34,7 +34,7 @@ systemd=true
 `/etc/wsl.conf` にWSLを再起動する
 
 ```shell
-##### powershell なり コマンドラインで実行 #####
+##### ホストOS(Windows)上で実行 #####
 wsl --terminate Debian
 wsl -d Debian
 ```
@@ -44,7 +44,7 @@ wsl -d Debian
 ディストリビューションごとアンインストールしてから、再度インストールする。
 
 ```powershell
-##### powershell なり コマンドラインで実行 #####
+##### ホストOS(Windows)上で実行 #####
 wsl --unregister Debian
 wsl --install Debian
 ```
