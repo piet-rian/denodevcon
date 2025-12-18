@@ -4,7 +4,7 @@ deno in devcontainer, documents and sample code.
 
 ## documents
 
-see [`#docs`](%23docs/) folder.
+see [`#docs`](%23docs/index.md) folder.
 
 ## sample code
 
