@@ -32,7 +32,16 @@ curl http://localhost:8000
 
 * イメージ内にて `deno.jsonc` で定義されているタスクを使用します
 * 8000ポートを使用するWebサーバーが起動します
-  * 変更する場合は `deno.jsonc`, `Dockerfile`, `compose.yaml` を全て変更する必要があります
+  * 変更する場合は、以下のファイルのポート番号指定を、同時に修正する必要があります
+    * `deno.jsonc`
+    * `.docker/production/Dockerfile`
+    * `.docker/production/compose.yaml`
 * ベースイメージは `gcr.io/distroless/cc-debian13:nonroot` です
-  * shellを含みません
+  * セキュリティ対策および軽量化を目的とした、shell等を含まないイメージです
     * よって `docker exec -it (hash) bash` といったような「コンテナに入って諸々確認する」ことは出来ません
+
+## コンテナイメージサイズについて
+
+* denoのバイナリ自体がそれなりに大きい(110MB超)
+* `deno compile` で実行ファイル化しても 80MBを超える
+  * 現状 `deno serve` で起動する想定の作りであるため、そこの修正をしないと実行ファイル化してもダメ
