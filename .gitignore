@@ -47,3 +47,6 @@
 .ionide
 
 # End of https://www.toptal.com/developers/gitignore/api/deno,git,visualstudiocode
+
+# opentelemetry関連を除外
+lgtm

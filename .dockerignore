@@ -10,3 +10,5 @@ docs
 tests
 samples
 *.md
+# opentelemetry関連を除外
+lgtm

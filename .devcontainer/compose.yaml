@@ -38,3 +38,20 @@ services:
   # なお、noop イメージは起動したと同時に終了する
   noop:
     image: eucm/noop
+
+  lgtm:
+    image: docker.io/grafana/otel-lgtm:0.8.1
+    container_name: lgtm
+    ports:
+      - "3000:3000"
+      - "4317:4317"
+      - "4318:4318"
+    volumes:
+      - ../lgtm/grafana:/data/grafana
+      - ../lgtm/prometheus:/data/prometheus
+      - ../lgtm/loki:/data/loki
+    environment:
+      - GF_PATHS_DATA=/data/grafana
+    tty: true
+    stdin_open: true
+    restart: "no"
