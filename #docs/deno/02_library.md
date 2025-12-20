@@ -7,8 +7,9 @@
 
 ### 例: `@std/assert` 導入の場合
 
-1. `deno add @std/assert` コマンドで `deno.jsonc` の `$.imports` に追加
-2. `import * as mod from "@std/assert";`  といった具合で各コードから読み込む
+1. `deno add jsr:@std/assert` をdevcontainer上のターミナルで実行
+    - `deno.jsonc` の `$.imports` に設定が追加される追加
+2. `import * as assert from "@std/assert";`  といった具合で各コードから読み込む
 
 ### [deno.land/x](https://deno.land/x) および [npm](https://www.npmjs.com/) 上のライブラリについて
 
@@ -26,13 +27,18 @@ Denoの開発元が公開しているLibrary群がある。
 
 csvやらjsoncの取り扱い、ファイルシステムへのアクセス等、様々な汎用ライブラリが公開されている。
 
+それぞれのイントロダクションは <https://docs.deno.com/runtime/reference/std/> にある。
+
 サードーパーティーのモジュールよりこれらの採用・使用を優先して検討するべきでしょう。
 
 ## 参考資料
 
-- npm モジュールの導入について
+- node 関連機能 および npm モジュールの導入について
   - <https://docs.deno.com/runtime/manual/node/>
 - ライブラリ
   - <https://jsr.io/>
   - <https://deno.land/x>
   - <https://www.npmjs.com/>
+- Deno Standard Library
+  - <https://jsr.io/@std>
+  - <https://docs.deno.com/runtime/reference/std/>
