@@ -6,6 +6,7 @@ import { prettyJSON } from "@hono/pretty-json";
 import * as about from "@api/about.ts";
 import { default as tsxroute } from "@api/tsx.tsx";
 import * as rootest from "@api/rootest.ts";
+import * as fetchHandler from "@api/fetch.ts";
 
 const app = new Hono();
 
@@ -13,6 +14,7 @@ app.use(etag()).use(logger()).use(prettyJSON());
 
 app.get("/", (c: Context): Response => c.text("Hono!"));
 app.get("/about", about.Get);
+app.get("/fetch", fetchHandler.Get);
 
 // honoのベストプラクティスとしては「コントローラーを作るな(≒パス定義と実装を近くにせよ)」であるが
 // ある程度の単位でまとめるのであればこうするかな、という感じ

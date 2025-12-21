@@ -1,7 +1,7 @@
 import { Context } from "@hono";
 
 export function Get(c: Context): Response {
-  console.log("GET /about");
+  console.log("in /about endpoint");
 
   return c.json(
     {
