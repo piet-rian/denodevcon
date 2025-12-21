@@ -10,6 +10,7 @@
   // `deno outdated`
   // 更新できるものがない場合は何も表示されない
   "imports": {
+    "@opentelemetry/api": "npm:@opentelemetry/api@^1.9.0",
     // プロジェクト内のモジュールを参照するためのエイリアス
     "@utils/": "./utils/",
     "@api/": "./api/",

@@ -7,9 +7,11 @@ import * as about from "@api/about.ts";
 import { default as tsxroute } from "@api/tsx.tsx";
 import * as rootest from "@api/rootest.ts";
 import * as fetchHandler from "@api/fetch.ts";
+import { uid } from "./mw/uid.ts";
 
 const app = new Hono();
 
+app.use(uid);
 app.use(etag()).use(logger()).use(prettyJSON());
 
 app.get("/", (c: Context): Response => c.text("Hono!"));
