@@ -15,3 +15,4 @@
 - [Git](03_git.md)
 - [Devcontainer](04_devcontainer.md)
 - [Deno](05_deno.md)
+- [Open Telemetry](06_otel.md)
