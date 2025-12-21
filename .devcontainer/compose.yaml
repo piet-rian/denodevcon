@@ -27,9 +27,6 @@ services:
     # ! 本番環境(AWSなりAzureなりGCPなり)にデプロイする際は、ENVが外部から設定できるはずなので
     # ! 以下のキーに相当する環境変数を本番環境に設定しておくこと
     environment:
-      ## Deno が Opentelemetry 前提の動作をするようににする
-      - OTEL_DENO=true
-
       ## Opentelemetry(lgtm) のエンドポイントURL
       # compose環境においては、localhostではなくサービス名で指定する
       - OTEL_EXPORTER_OTLP_ENDPOINT=http://lgtm:4318
