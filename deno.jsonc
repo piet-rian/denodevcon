@@ -1,8 +1,8 @@
 {
   "tasks": {
     // ! start については、本番用のコンテナでも使用しているため、変更する場合は注意
-    "start": "OTEL_DENO=true deno serve --port 8000 --host 0.0.0.0 main.ts",
-    "debug": "OTEL_DENO=true deno serve --port 8000 --watch --inspect -A main.ts",
+    "start": "deno serve --port 8000 --host 0.0.0.0 main.ts",
+    "debug": "deno serve --port 8000 --watch --inspect -A main.ts",
     "cache": "deno cache main.ts"
   },
   // 最新版の確認

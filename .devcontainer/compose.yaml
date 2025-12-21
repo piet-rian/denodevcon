@@ -4,7 +4,7 @@
 # {name指定内容}-{service名} の形式にできる
 name: projectname
 services:
-  ### devcontainer
+  ### devcontainer ###
   devcontainer:
     build:
       context: .
@@ -24,18 +24,18 @@ services:
     extra_hosts:
       - "host.docker.internal:host-gateway"
 
+    # ! 本番環境(AWSなりAzureなりGCPなり)にデプロイする際は、ENVが外部から設定できるはずなので
+    # ! 以下のキーに相当する環境変数を本番環境に設定しておくこと
     environment:
-      # ! 本番環境(AWSなりAzureなりGCPなり)にデプロイする際は、ENVが外部から設定できるはずなので
-      # ! 以下のキーに相当する環境変数を本番環境に設定しておくこと
-      ## Opentelemetry(lgtm)にトレースデータを送信するための設定
-      # see. https://opentelemetry.io/docs/specs/otel/protocol/exporter/
-      # 開発環境においてOpentelemetry(lgtm)はdevcontainerとは別のコンテナで動作している
-      # そのため、デフォルト設定のlocalhostではlgtmコンテナに送信されない
-      # compose 環境においては、サービス名でコンテナー間通信が可能なので lgtm と指定する
+      ## Deno が Opentelemetry 前提の動作をするようににする
+      - OTEL_DENO=true
+
+      ## Opentelemetry(lgtm) のエンドポイントURL
+      # compose環境においては、localhostではなくサービス名で指定する
       - OTEL_EXPORTER_OTLP_ENDPOINT=http://lgtm:4318
+
       ## Opentelemetry(lgtm)に送信されるトレースデータに付与されるサービス名
       - OTEL_SERVICE_NAME=projectname_service_in_devcontainer
-
     # Uncomment the next four lines if you will use a ptrace-based debuggers like C++, Go, and Rust.
     # cap_add:
     #  - SYS_PTRACE
@@ -45,9 +45,9 @@ services:
     # Use "forwardPorts" in **devcontainer.json** to forward an app port locally.
     # (Adding the "ports" property to this file will not forward from a Codespace.)
 
-##### 開発用コンテナー以外に同時に起動したいコンテナはここより下で定義する #####
+    ##### 開発用コンテナー以外に同時に起動したいコンテナはここより下で定義する #####
 
-  ### Opentelemetry + Grafana + Prometheus + Loki + Tempo + Pyroscope の統合観測基盤
+    ### Opentelemetry + Grafana + Prometheus + Loki + Tempo + Pyroscope の統合観測基盤
   lgtm:
     image: docker.io/grafana/otel-lgtm:0.13.0
     container_name: lgtm
