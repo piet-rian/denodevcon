@@ -1,9 +1,10 @@
 {
   "tasks": {
+    // * OTEL_DENO ... Deno による自動計装を有効化するかどうか, env で設定すると 他のDenoコマンドにも影響が出る
+    // * $HONO_SERVICE_PORT ... Hono のデフォルトポートを指定する環境変数, compose側で設定している
     // ! start については、本番用のコンテナでも使用しているため、変更する場合は注意
-    // OTEL_DENO については、compose側で設定するとアプリケーションコード以外のなんかもトレースしてしまうため、ここで設定している
-    "start": "OTEL_DENO=true deno serve --port 8000 --host 0.0.0.0 main.ts",
-    "debug": "OTEL_DENO=true deno serve --port 8000 --watch --inspect -A main.ts",
+    "start": "OTEL_DENO=true deno serve --port $HONO_SERVICE_PORT --host 0.0.0.0 main.ts",
+    "debug": "OTEL_DENO=true deno serve --port $HONO_SERVICE_PORT --watch --inspect -A main.ts",
     "cache": "deno cache main.ts"
   },
   // 最新版の確認

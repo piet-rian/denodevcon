@@ -3,6 +3,7 @@
 # name指定することで生成されるコンテナ名をある程度制御可能
 # {name指定内容}-{service名} の形式にできる
 name: projectname
+
 services:
   ### devcontainer ###
   devcontainer:
@@ -27,6 +28,10 @@ services:
     # ! 本番環境(AWSなりAzureなりGCPなり)にデプロイする際は、ENVが外部から設定できるはずなので
     # ! 以下のキーに相当する環境変数を本番環境に設定しておくこと
     environment:
+      ## Honoのリッスンポート
+      # 環境ごとに変えれるようにしておくと、prodイメージのローカル確認が楽になる
+      - HONO_SERVICE_PORT=8000
+
       ## Opentelemetry(lgtm) のエンドポイントURL
       # compose環境においては、localhostではなくサービス名で指定する
       - OTEL_EXPORTER_OTLP_ENDPOINT=http://lgtm:4318
