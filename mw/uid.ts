@@ -8,10 +8,9 @@ export const uid = (c: Context, next: Next) => {
   const activeSpan = trace.getActiveSpan();
   activeSpan?.setAttribute("user.id", uidFromHeader);
 
-  // TODO: grafanaでuidを元にログをフィルタリングできるようにする
-  // * Loki側の Derived fields でなんとかなるのか
-  // * Structure metadeta にuidを設定する必要があるのか
-  // * 仮に後者だったとして、どうやってアプリケーション側でStructure metadetaに設定するのかも要調査
-
+  // TODO: grafana lokiでuidを元にログをフィルタリングできるようにする
+  // * Tempoでuid単位で「トレース」をフィルタリングすることはできている
+  // * loki側でuidを元に「ログライン」をフィルタリングできるようにするにはどうすれば良いのかがわかっていない
+  // * lokiだとlabelという概念でしかフィルタリングが出来ないので、送出なり集計(OTELコレクターのプロセッサ？)の段階でuidをlabelとするような設定が必要？
   return next();
 };
