@@ -44,11 +44,55 @@ docker compose -f .devcontainer/docker-compose.yml ls
 git fetch
 ```
 
-## 全ユーザー共通で使用して欲しい拡張機能がある場合
+## 全ユーザー共通で使用して欲しいVSCodeの拡張機能がある場合
 
 - vscodeの拡張機能ビュー上において、該当の拡張機能を右クリック→`devcontainer.jsonに追加`で追加できる。
 - その後、コンテナーのrebuildを促す通知が右下から出てくるので、それに従ってリビルドする
 
+## コンテナそのものに対して `apt-get` が必要な場合
+
+- devcontainer の feature で代用できないか検討する
+- 代用できない場合に限り `.devcontainer/Dockerfile` を編集して `apt-get` を行って良い
+
 ## 同時に起動しておいて欲しいコンテナがある場合
 
-`.devcontainer/docker-compose.yml` を編集して追加する。yml内にコメントとして記載したためそちら参照。
+`.devcontainer/docker-compose.yml`を編集して追加する。
+yml内にコメントとして記載したためそちら参照。
+
+追加候補としては、システム構成次第ではあるが、以下のようなものが予想される
+
+- データベース(postgres, mysql等)
+- テレメトリ(grafana)
+- KVS(memcached, redis, dragonfly等)
+- クラウドストレージ(minio, Azurite等)
+- 連動するwebサービスのスタブ
+
+## トラブルシュート
+
+### `git fetch` に失敗する場合
+
+コンテナ内で `ssh -T git@github.com` を改めて実行して、エラーメッセージを確認。
+
+高確率で `git@github.com: Permission denied (publickey).` とかでてるはずなので、以下を確認する。
+
+- そもそもWindows側の ssh-agent は動いているか、秘密鍵が登録されているか
+  - 登録状況の確認は `ssh-add -l`
+  - 鍵登録時に `TOO OPEN` と怒られた場合は、Windows上にて秘密鍵の権限を削ること
+    - see. <https://qiita.com/eltociear/items/02e8b1f5590b49eb9d87>
+- 同WSL(debian)で ssh-agent は動いているか、秘密鍵が登録されているか
+  - 登録状況の確認は `ssh-add -l` で同じ
+  - 権限変更は `chmod`
+
+#### 簡易解説
+
+ssh周りは上位環境(コンテナから見たWSL、WSLから見たWindows)でssh鍵が登録されているなら、devcontainer拡張機能がよしなに処理してくれる。
+
+<https://code.visualstudio.com/remote/advancedcontainers/sharing-git-credentials#_using-ssh-keys> より
+
+> the extension will automatically forward your local SSH agent if one is running.
+> First, you should ensure that SSH agent forwarding is enabled on the host.
+>
+> (機械翻訳) ローカルの SSH エージェントが実行中の場合、拡張機能が自動的に(筆者補足:SSH キーを)転送します。
+> まず、ホストで SSH エージェント転送が有効になっていることを確認してください。
+
+よって、上位環境のsshエージェントが動いていない、動いていても秘密鍵が登録されていない、という可能性が高い。

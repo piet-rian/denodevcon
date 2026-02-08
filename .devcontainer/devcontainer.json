@@ -5,7 +5,7 @@
   "dockerComposeFile": "compose.yaml",
   "service": "devcontainer", // compose.yaml内のサービス名を指定
   // * コンテナ内で開くフォルダを指定
-  // ${localWorkspaceFolderBasename} はローカル(WLS上)のプロジェクトルートのふぉるだ名に置き換えられる
+  // ${localWorkspaceFolderBasename} はローカル(WLS上)のプロジェクトルートのフォルダ名に置き換えられる
   "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
   // Use this environment variable if you need to bind mount your local source code into a new container.
   // "remoteEnv": {
