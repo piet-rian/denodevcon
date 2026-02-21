@@ -12,7 +12,8 @@
 
 - [WSL](01_wsl.md)
 - [Docker](02_docker.md)
-- [Git](03_git.md)
-- [Devcontainer](04_devcontainer.md)
-- [Deno](05_deno.md)
-- [Open Telemetry](06_otel.md)
+- [SSH](03_ssh.md)
+- [Git](04_git.md)
+- [Devcontainer](05_devcontainer.md)
+- [Deno](06_deno.md)
+- [Open Telemetry](07_otel.md)
