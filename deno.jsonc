@@ -13,8 +13,8 @@
   "imports": {
     "@opentelemetry/api": "npm:@opentelemetry/api@^1.9.0",
     // プロジェクト内のモジュールを参照するためのエイリアス
-    "@utils/": "./utils/",
-    "@api/": "./api/",
+    "@utils/": "./src/utils/",
+    "@api/": "./src/api/",
     "@entrypoint": "./main.ts", // テストコードにおけるショートハンド用途
     // 以下、外部ライブラリ
     "@hectorm/otpauth": "jsr:@hectorm/otpauth@^9.4.1",
