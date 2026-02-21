@@ -38,5 +38,19 @@
     "shell": "system",
     "show_summary": true,
     "show_command": true
+  },
+
+  // deno.jsonc で特に定義してないテストタスク
+  {
+    "label": "Task(Deno) test",
+    "command": "deno test -A",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always",
+    "reveal_target": "dock",
+    "hide": "never",
+    "shell": "system",
+    "show_summary": true,
+    "show_command": true
   }
 ]
