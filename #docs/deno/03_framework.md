@@ -19,7 +19,10 @@ Denoのみで完結させたいなら[Fresh](https://fresh.deno.dev/)、Vite等�
 ### [Hono](https://hono.dev/)
 
 - マイクロフレームワーク
-  - [sinatra](https://sinatrarb.com/)@ruby, [flask](https://flask.palletsprojects.com/en/3.0.x/)@python, [express](https://expressjs.com/ja/)@nodejs 的なもの
+  - [sinatra](https://sinatrarb.com/)@ruby
+  - [flask](https://flask.palletsprojects.com/en/3.0.x/)@python
+  - [express](https://expressjs.com/ja/)@nodejs
+    - 的なもの
 - 基本的にはAPIサーバー用
   - ミドルウェア等で拡張はある程度可能
 - フロントエンドまで取り扱うなら素直に [honox](https://github.com/honojs/honox) 導入したほうが良さそう
@@ -28,8 +31,14 @@ Denoのみで完結させたいなら[Fresh](https://fresh.deno.dev/)、Vite等�
 
 ## ORM
 
-2024-06-23時点ではいい感じのものはない、自前でSQL組み立てよう
+<https://docs.deno.com/examples/connecting_to_databases_tutorial/#orms> より
 
-- [DenoDB](https://github.com/eveningkid/denodb) は開発が止まっている
-- [JUSTAOS's ORM](https://github.com/justaos/orm) はサンプル見た感じ微妙
-- [Prisma](https://www.prisma.io/)@node は Deno対応が非常に限定的
+- Prisma, Drizzle, Kysely のどれかが候補か
+  - Prisma <https://docs.deno.com/examples/prisma_tutorial/>
+  - Drizzle <https://docs.deno.com/examples/drizzle_tutorial/>
+    - それぞれオフィシャルなチュートリアルあり
+
+## 単なるDB接続
+
+- <https://docs.deno.com/examples/connecting_to_databases_tutorial/> に一通り例がある
+  - 見ての通りnpmからライブラリ持ってきている例が大半
