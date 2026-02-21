@@ -1,0 +1,42 @@
+// Project tasks configuration. See https://zed.dev/docs/tasks for documentation.
+[
+  // * deno.jsonc で定義している Denoのタスクに対応する zed 側のタスク定義群
+  {
+    "label": "Task(Deno) start",
+    "command": "deno task start",
+    "env": { "HONO_SERVICE_PORT": "8000" },
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always",
+    "reveal_target": "dock",
+    "hide": "never",
+    "shell": "system",
+    "show_summary": true,
+    "show_command": true
+  },
+  {
+    "label": "Task(Deno) debug",
+    "command": "deno task debug",
+    "env": { "HONO_SERVICE_PORT": "8000" },
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always",
+    "reveal_target": "dock",
+    "hide": "never",
+    "shell": "system",
+    "show_summary": true,
+    "show_command": true
+  },
+  {
+    "label": "Task(Deno) cache",
+    "command": "deno task cache",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always",
+    "reveal_target": "dock",
+    "hide": "on_success",
+    "shell": "system",
+    "show_summary": true,
+    "show_command": true
+  }
+]

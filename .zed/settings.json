@@ -1,0 +1,45 @@
+{
+  "project_name": "denodevcon",
+
+  // see. https://zed.dev/docs/languages/deno
+
+  // * denoの設定ファイルのスキーマ設定
+  "lsp": {
+    "json-language-server": {
+      "settings": {
+        "json": {
+          "schemas": [
+            {
+              "fileMatch": ["deno.json", "deno.jsonc"],
+              "url": "https://raw.githubusercontent.com/denoland/deno/refs/heads/main/cli/schemas/config-file.v1.json"
+            },
+            {
+              "fileMatch": ["package.json"],
+              "url": "https://www.schemastore.org/package"
+            }
+          ]
+        }
+      }
+    }
+  },
+  // * denoの言語サーバーを使うための設定
+  "languages": {
+    "Markdown": {
+      "prettier": {
+        "allowed": false
+      }
+    },
+    "JavaScript": {
+      "language_servers": ["deno", "!typescript-language-server", "!vtsls", "!eslint"],
+      "formatter": "language_server"
+    },
+    "TypeScript": {
+      "language_servers": ["deno", "!typescript-language-server", "!vtsls", "!eslint"],
+      "formatter": "language_server"
+    },
+    "TSX": {
+      "language_servers": ["deno", "!typescript-language-server", "!vtsls", "!eslint"],
+      "formatter": "language_server"
+    }
+  }
+}
