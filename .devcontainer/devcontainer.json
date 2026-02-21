@@ -15,10 +15,13 @@
   "features": {
     // WLS2上のDockerデーモンを使用可能にする
     "ghcr.io/devcontainers/features/docker-outside-of-docker:latest": {
-      "enableNonRootDocker": "true" // 非rootユーザーでdockerコマンドを使用可能にする
+      "enableNonRootDocker": "true", // 非rootユーザーでdockerコマンドを使用可能にする
+      "moby": "false" // trixieはmoby未対応@2026-02-11 // https://github.com/apache/superset/issues/37180#issuecomment-3759792394
     },
     // Denoをインストール
-    "ghcr.io/devcontainers-community/features/deno:latest": {}
+    "ghcr.io/devcontainers-community/features/deno:latest": {},
+    // jj(jujutsu)のインストール
+    "ghcr.io/eitsupi/devcontainer-features/jujutsu-cli:1": {}
   },
   "customizations": {
     "vscode": {

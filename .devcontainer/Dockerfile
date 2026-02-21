@@ -1,5 +1,5 @@
 # Note: You can use any Debian/Ubuntu based image you want.
-FROM mcr.microsoft.com/devcontainers/base:bookworm
+FROM mcr.microsoft.com/devcontainers/base:trixie
 
 # タイムゾーンを日本時間に設定(しないとDateコマンド等の時間がUTCになる)
 ENV TZ=Asia/Tokyo
