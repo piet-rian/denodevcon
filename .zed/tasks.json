@@ -43,7 +43,7 @@
   // deno.jsonc で特に定義してないテストタスク
   {
     "label": "Task(Deno) test",
-    "command": "deno test -A",
+    "command": "deno task test",
     "use_new_terminal": false,
     "allow_concurrent_runs": false,
     "reveal": "always",
