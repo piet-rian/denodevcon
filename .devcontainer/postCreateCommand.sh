@@ -12,12 +12,15 @@
 ### スクリプト内でエラーが発生した場合に即座に終了するためのオプション
 set -e
 
-### tmp内作業が終了した後で、戻って来るプロジェクトルートを記録
+### プロジェクトルートを記録
+# プロジェクトルートでコマンドを実行する必要がある場合に
+# 後述のテンポラリから戻ってくるため
 PROJECT_ROOT=`pwd`
 
 ### 以下、tmp以下のディレクトリで実施する
-mkdir /tmp/dev-container-post-create-user-define-actions
-cd /tmp/dev-container-post-create-user-define-actions
+POST_CREATE_COMMAND_WORK_DIR=/tmp/dev-container-post-create-user-define-actions
+mkdir ${POST_CREATE_COMMAND_WORK_DIR}
+cd ${POST_CREATE_COMMAND_WORK_DIR}
 
 ##### 本体部分 #####
 #
@@ -26,6 +29,10 @@ cd /tmp/dev-container-post-create-user-define-actions
 ####################
 
 ##### git ローカル設定 #####
+# ! global に対しての設定は行わない
+# ! 設定した場合、WSLから引き継いだ `user.emal`と`user.name` が無効化され、commit等に支障をきたす
+
+### プロジェクトルートに戻る
 # local設定は `.git` ディレクトリのある場所に(==プロジェクトルート)に戻る必要がある
 cd ${PROJECT_ROOT}
 
