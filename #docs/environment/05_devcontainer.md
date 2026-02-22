@@ -49,10 +49,11 @@ git fetch
 - vscodeの拡張機能ビュー上において、該当の拡張機能を右クリック→`devcontainer.jsonに追加`で追加できる。
 - その後、コンテナーのrebuildを促す通知が右下から出てくるので、それに従ってリビルドする
 
-## コンテナそのものに対して `apt-get` が必要な場合
+## コンテナそのものに対して `apt install` が必要な場合
 
-- devcontainer の feature で代用できないか検討する
-- 代用できない場合に限り `.devcontainer/Dockerfile` を編集して `apt-get` を行って良い
+1. devcontainer の [features](https://containers.dev/features/) で代用できないか検討する
+2. 代用できない場合に限り `.devcontainer/postCreateCommand.sh` を編集して `apt install` 相当の処理を行う
+3. dockerfile内では行わない
 
 ## 同時に起動しておいて欲しいコンテナがある場合
 
