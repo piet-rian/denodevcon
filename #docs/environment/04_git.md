@@ -13,6 +13,7 @@ sudo apt install git
 # インストール完了確認
 git -v
 ```
+
 ### リポジトリのクローン
 
 ```shell
@@ -22,7 +23,7 @@ git -v
 cd ~/
 mkdir denodev
 cd ~/denodev
-git clone https://github.com/piet-rian/denodevcon.git
+git clone git@github.com:piet-rian/denodevcon.git
 ```
 
 ### 補足
@@ -31,3 +32,8 @@ globalでもリポジトリ単位でも良いので、git側にユーザー名�
 
 - <https://docs.github.com/ja/get-started/git-basics/setting-your-username-in-git>
 - <https://docs.github.com/ja/account-and-profile/how-tos/email-preferences/setting-your-commit-email-address>
+
+### 補足2 devcontainer 内のgitについて
+
+- ベースイメージに含まれているためインストール作業は不要
+- `.devcontainer/postCreateCommand.sh` 内で共通のconfig設定が行われている

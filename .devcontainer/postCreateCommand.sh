@@ -21,6 +21,17 @@ cd /tmp/dev-container-post-create-user-define-actions
 # 本プロジェクトにおいては、現時点では feature などで事が足りているため何もしない
 #
 
+##### git ローカル設定 #####
+# see. https://git-scm.com/docs/git-config
+git config --local fetch.prune true
+git config --local fetch.pruneTags true
+git config --local log.date iso8601
+git config --local blame.date iso8601
+git config --local merge.ff false # 必ずマージコミットを作る
+git config --local merge.autoStash true
+git config --local pull.autoStash true
+git config --local core.longpaths true # パス長すぎ対策
+
 ##### print completion message #####
 echo "postCreateCommand.sh: \033[42m completed. \033[0m"
 echo "\033[32m ===== devcontainer のセットアップが完了しました。 ===== \033[0m"
