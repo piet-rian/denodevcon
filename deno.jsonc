@@ -15,6 +15,7 @@
     // プロジェクト内のモジュールを参照するためのエイリアス
     "@utils/": "./src/utils/",
     "@api/": "./src/api/",
+    "@mw/": "./src/mw/",
     "@entrypoint": "./main.ts", // テストコードにおけるショートハンド用途
     // 以下、外部ライブラリ
     "@hectorm/otpauth": "jsr:@hectorm/otpauth@^9.4.1",
