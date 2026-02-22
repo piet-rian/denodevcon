@@ -26,11 +26,11 @@ cd /tmp/dev-container-post-create-user-define-actions
 ####################
 
 ##### git ローカル設定 #####
-# .git ディレクトリのある場所に戻る必要があるので tmp から脱出し、ワーキングディレクトリに戻る
+# local設定は `.git` ディレクトリのある場所に(==プロジェクトルート)に戻る必要がある
 cd ${PROJECT_ROOT}
 
 # see. https://git-scm.com/docs/git-config
-# devcontainer環境なら global 指定でも他に影響が出ないはずなので良いだろうという判断
+# 設定内容は `cat .git/config` をプロジェクトルートで実行することでも確認可能
 git config --local  fetch.prune true
 git config --local  fetch.pruneTags true
 git config --local  log.date iso8601
