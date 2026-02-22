@@ -69,6 +69,7 @@ Deno.test("rootest(other)", async () => {
   assertEquals(responseJson.status, "success");
   assertEquals(responseJson.date, "asc");
 });
+
 Deno.test("rootest(asc)", async () => {
   const res = await app.request("/rootest?date=asc");
 
@@ -81,6 +82,7 @@ Deno.test("rootest(asc)", async () => {
   assertEquals(responseJson.status, "success");
   assertEquals(responseJson.date, "asc");
 });
+
 Deno.test("rootest(dsc)", async () => {
   const res = await app.request("/rootest?date=desc");
 
