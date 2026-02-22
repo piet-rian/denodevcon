@@ -5,7 +5,8 @@
     // ! start については、本番用のコンテナでも使用しているため、変更する場合は注意
     "start": "OTEL_DENO=true deno serve --port $HONO_SERVICE_PORT --host 0.0.0.0 main.ts",
     "debug": "OTEL_DENO=true deno serve --port $HONO_SERVICE_PORT --watch --inspect -A main.ts",
-    "cache": "deno cache main.ts"
+    "cache": "deno cache main.ts",
+    "test": "deno test -A --parallel --reporter=dot"
   },
   // 最新版の確認
   // `deno outdated`
