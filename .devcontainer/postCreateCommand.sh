@@ -23,14 +23,15 @@ cd /tmp/dev-container-post-create-user-define-actions
 
 ##### git ローカル設定 #####
 # see. https://git-scm.com/docs/git-config
-git config --local fetch.prune true
-git config --local fetch.pruneTags true
-git config --local log.date iso8601
-git config --local blame.date iso8601
-git config --local merge.ff false # 必ずマージコミットを作る
-git config --local merge.autoStash true
-git config --local pull.autoStash true
-git config --local core.longpaths true # パス長すぎ対策
+# devcontainer環境なら global 指定でも他に影響が出ないはずなので良いだろうという判断
+git config --global fetch.prune true
+git config --global fetch.pruneTags true
+git config --global log.date iso8601
+git config --global blame.date iso8601
+git config --global merge.ff false # 必ずマージコミットを作る
+git config --global merge.autoStash true
+git config --global pull.autoStash true
+git config --global core.longpaths true # パス長すぎ対策
 
 ##### print completion message #####
 echo "postCreateCommand.sh: \033[42m completed. \033[0m"
