@@ -58,22 +58,29 @@ services:
     # Use "forwardPorts" in **devcontainer.json** to forward an app port locally.
     # (Adding the "ports" property to this file will not forward from a Codespace.)
 
-    ##### 開発用コンテナー以外に同時に起動したいコンテナはここより下で定義する #####
+  ##### 開発用コンテナー以外に同時に起動したいコンテナはここより下で定義する #####
 
-    ### Opentelemetry + Grafana + Prometheus + Loki + Tempo + Pyroscope の統合観測基盤
   lgtm:
-    image: docker.io/grafana/otel-lgtm:0.13.0
+    ### Opentelemetry を軸とした統合観測基盤イメージ
+    # see. https://github.com/grafana/docker-otel-lgtm
+    image: docker.io/grafana/otel-lgtm:latest
     container_name: lgtm
     ports:
-      - "3000:3000"
-      - "4317:4317"
-      - "4318:4318"
+      - "3000:3000" # grafana(WebUI)
+      - "4317:4317" # otelのgrpc受け口
+      - "4318:4318" # otelのhttp受け口
     volumes:
+      # データ領域
       - ../lgtm/grafana:/data/grafana
       - ../lgtm/prometheus:/data/prometheus
       - ../lgtm/loki:/data/loki
+      # 設定ファイル
+      - ../lgtm/otelcol-config.yaml:/otel-lgtm/otelcol-config.yaml
+      - ../lgtm/loki-config.yaml:/otel-lgtm/loki-config.yaml
     environment:
       - GF_PATHS_DATA=/data/grafana
+      # see. https://grafana.com/docs/opentelemetry/docker-lgtm/#enable-logging
+      - ENABLE_LOGS_LOKI=true
     tty: true
     stdin_open: true
     restart: "no"
