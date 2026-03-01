@@ -13,6 +13,7 @@
   // 更新できるものがない場合は何も表示されない
   "imports": {
     "@opentelemetry/api": "npm:@opentelemetry/api@^1.9.0",
+    "@std/testing": "jsr:@std/testing@^1.0.17",
     // プロジェクト内のモジュールを参照するためのエイリアス
     "@utils/": "./src/utils/",
     "@api/": "./src/api/",

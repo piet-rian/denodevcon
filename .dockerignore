@@ -1,13 +1,9 @@
 # .系列を除外
-.devcontainer
-.docker
-.github
-.vscode
-.git
-.gitignore
-# プロダクトからドキュメント、テストコードを除外
-docs
-src/tests
+.*
+!.dockerignore
+# プロダクトからドキュメント、テストコード、サンプルコードを除外
+\#docs
+tests
 src/samples
 *.md
 # opentelemetry関連を除外

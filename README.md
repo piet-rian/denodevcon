@@ -8,4 +8,4 @@ see [`#docs`](%23docs/index.md) folder.
 
 ## sample code
 
-see [samples](src/samples/) folder.
+see [samples](samples/) folder.
