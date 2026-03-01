@@ -41,13 +41,16 @@ cd "${PROJECT_ROOT}"
 # 設定内容は `cat .git/config` をプロジェクトルートで実行することでも確認可能
 git config --local fetch.prune true
 git config --local fetch.pruneTags true
-git config --local log.date iso8601
-git config --local blame.date iso8601
+git config --local log.date iso-strict
+git config --local blame.date iso-strict
 git config --local merge.ff false # mergeする場合は基本的にマージコミットを作る
 git config --local pull.ff only # ただしpull(fetch+merge(remote))する場合は fast-forward 出来る場合のみとする
 git config --local merge.autoStash true
 git config --local pull.autoStash true
 git config --local core.longpaths true # パス長すぎ対策
+# ターミナル上でログを確認するにあたって、私的に見やすく出力させるもののエイリアス
+git config --local alias.ll "log --graph --decorate=short --all --pretty=format:'%C(yellow)%h%C(reset) %C(magenta)[%ad]%C(reset) %C(auto)%d%C(reset) %s %C(cyan)@%an%C(reset)'"
+### git confg 設定終了
 printf "git config(local): \033[34m OK \033[0m"; printf '%b\n';
 
 ##### print completion message #####
