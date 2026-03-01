@@ -4,14 +4,17 @@
   "name": "Docker from Docker Compose",
   "dockerComposeFile": "compose.yaml",
   "service": "devcontainer", // compose.yaml内のサービス名を指定
+
   // * コンテナ内で開くフォルダを指定
   // ${localWorkspaceFolderBasename} はローカル(WLS上)のプロジェクトルートのフォルダ名に置き換えられる
   "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+
   // Use this environment variable if you need to bind mount your local source code into a new container.
   // "remoteEnv": {
   //   "LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}"
   // },
-  // 開発環境に追加する機能を指定
+
+  // * 開発環境に追加する機能を指定
   "features": {
     // WLS2上のDockerデーモンを使用可能にする
     "ghcr.io/devcontainers/features/docker-outside-of-docker:latest": {
@@ -21,7 +24,9 @@
     // Denoをインストール
     "ghcr.io/devcontainers-community/features/deno:latest": {}
   },
+
   "customizations": {
+    // IDE単位の設定
     "vscode": {
       // 必ず導入する拡張機能を指定
       "extensions": [
@@ -30,15 +35,24 @@
         "mhutchie.git-graph",
         "mechatroner.rainbow-csv",
         "usernamehw.errorlens"
-      ]
+      ],
+      // settings.json相当の指定が可能 // 設定のレベルとしては リモート相当になる
+      "config": {
+        "deno.enable": true,
+        // git diff において影響が出る項目を設定
+        "editor.formatOnSave": true,
+        "editor.tabSize": 2,
+        "files.insertFinalNewline": true,
+        "files.trimFinalNewlines": true,
+        "files.trimTrailingWhitespace": true
+      }
     }
   },
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
   // "forwardPorts": [],
-  // コンテナビルド後に一回だけ実行されるコマンドを指定
+
+  // * コンテナビルド後に一回だけ実行されるコマンドを指定
   // see. https://containers.dev/implementors/json_reference/#lifecycle-scripts
   // memo. ファイル名だけ渡すと実行権限不足で失敗するため、シェル経由で実行する
   "postCreateCommand": "/bin/sh .devcontainer/postCreateCommand.sh"
-  // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-  // "remoteUser": "root"
 }
