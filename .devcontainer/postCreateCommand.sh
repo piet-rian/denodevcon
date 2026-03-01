@@ -15,7 +15,7 @@ set -e
 ### プロジェクトルートを記録
 # プロジェクトルートでコマンドを実行する必要がある場合に
 # 後述のテンポラリから戻ってくるため
-PROJECT_ROOT=`pwd`
+PROJECT_ROOT=$(pwd)
 
 ### 以下、tmp以下のディレクトリで実施する
 POST_CREATE_COMMAND_WORK_DIR=/tmp/dev-container-post-create-user-define-actions
@@ -34,7 +34,7 @@ cd ${POST_CREATE_COMMAND_WORK_DIR}
 
 ### プロジェクトルートに戻る
 # local設定は `.git` ディレクトリのある場所に(==プロジェクトルート)に戻る必要がある
-cd ${PROJECT_ROOT}
+cd "${PROJECT_ROOT}"
 
 # see. https://git-scm.com/docs/git-config
 # 設定内容は `cat .git/config` をプロジェクトルートで実行することでも確認可能
@@ -42,13 +42,13 @@ git config --local fetch.prune true
 git config --local fetch.pruneTags true
 git config --local log.date iso8601
 git config --local blame.date iso8601
-git config --local merge.ff false # mergeする場合は必ずマージコミットを作る
-git config --local pull.ff only # pull は fast-forward 出来る場合のみ
+git config --local merge.ff false # mergeする場合は基本的にマージコミットを作る
+git config --local pull.ff only # ただしpull(fetch+merge(remote))する場合は fast-forward 出来る場合のみとする
 git config --local merge.autoStash true
 git config --local pull.autoStash true
 git config --local core.longpaths true # パス長すぎ対策
 
 ##### print completion message #####
-echo "postCreateCommand.sh: \033[42m completed. \033[0m"
-echo "\033[32m ===== devcontainer のセットアップが完了しました。 ===== \033[0m"
+printf "postCreateCommand.sh: \033[42m completed. \033[0m"; printf '%b\n';
+printf "\033[32m ===== devcontainer のセットアップが完了しました。 ===== \033[0m"; printf '%b\n';
 exit 0
