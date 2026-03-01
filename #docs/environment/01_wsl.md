@@ -14,7 +14,7 @@ wsl --install -d Debian
 
 ### debian の更新
 
-```shell
+```sh
 ##### debian(WSL)内で実行 #####
 sudo apt update
 sudo apt upgrade
@@ -26,14 +26,14 @@ sudo apt upgrade
 
 **debian(WSL)内** の `/etc/wsl.conf` に以下の記述を追加(ファイル自体がない場合は作成する)(要sudo)
 
-```bash
+```sh
 [boot]
 systemd=true
 ```
 
 `/etc/wsl.conf` にWSLを再起動する
 
-```shell
+```sh
 ##### ホストOS(Windows)上で実行 #####
 wsl --terminate Debian
 wsl -d Debian

@@ -8,7 +8,7 @@ Docker Desktop は商用利用時にライセンス云々の話が出るため D
 
 ### apt に docker 用のリポジトリを追加する
 
-```shell
+```sh
 ##### debian(WSL)内で実行 #####
 # sudo apt-get update に関しては同等の処理を実行済みであるため略
 sudo apt-get install ca-certificates curl
@@ -26,11 +26,11 @@ sudo apt-get update
 
 ### apt からdockerの諸々をインストールする
 
-```shell
+```sh
 ##### debian(WSL)内で実行 #####
-# インストール
+### インストール
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-# インストール確認
+### インストール確認
 docker -v
 ```
 
@@ -38,26 +38,26 @@ docker -v
 
 基本的に <https://docs.docker.com/engine/install/linux-postinstall/> の内容と同じ
 
-```shell
+```sh
 ##### debian(WSL)内で実行 #####
-# sudo 無しで dockerが動くようにする設定
+### sudo 無しで dockerが動くようにする設定
 sudo groupadd docker
 sudo usermod -aG docker $USER
 
 ### ここまで終わったら、いったんWSLに接続し直す ###
 
-# docker のサービスを起動
+### docker のサービスを起動
 sudo service docker restart
 
-# WSL起動時に docker サービスが自動起動するようにする
+### WSL起動時に docker サービスが自動起動するようにする
 sudo systemctl enable docker
 ```
 
 ### 動作確認
 
-```shell
+```sh
 ##### debian(WSL)内で実行 #####
-## docker 自体の動作確認
+### docker 自体の動作確認
 # サンプルイメージの実行
 docker run hello-world
 
@@ -69,9 +69,9 @@ docker run hello-world
 # This message shows that your installation appears to be working correctly.
 ```
 
-```shell
+```sh
 ##### debian(WSL)内で実行 #####
-## docker compose の動作確認
+### docker compose の動作確認
 # compose が動くかどうかだけ確認
 docker compose version
 ```

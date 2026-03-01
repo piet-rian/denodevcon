@@ -1,39 +1,71 @@
 # git (及び githubとの接続とリポジトリのクローン)
 
-githubとのssh接続の確立を完了させていることを前提とする。
+githubとssh接続が確立できていることを前提とする。
 
 ## 手順
 
+### 前提の確認
+
+```sh
+##### debian(WSL)内で実行 #####
+### 疎通確認
+ssh -T git@github.com
+# 以下のようなメッセージが出力されていればOK
+# You've successfully authenticated, but GitHub does not provide shell access.
+```
+
 ### git の導入
 
-```shell
+```sh
 ##### debian(WSL)内で実行 #####
-# git のインストール
+### git のインストール
 sudo apt install git
-# インストール完了確認
+### インストール完了確認
 git -v
 ```
 
 ### リポジトリのクローン
 
-```shell
+```sh
 ##### debian(WSL)内で実行 #####
-# ホームディレクトリ直下にクローンしないこと
-# 詳細についてはクローン後に `.devcontainer/compose.yaml` 参照
+### クローン用ディレクトリの作成
+# `.devcontainer/compose.yaml` 参照
 cd ~/
-mkdir denodev
-cd ~/denodev
+mkdir devcon
+cd ~/devcon
+### リポジトリのクローン
+# クローン先のURLは `git@なんたら.git` 形式であること
 git clone git@github.com:piet-rian/denodevcon.git
 ```
 
-### 補足
+### ユーザーとメールアドレスの設定
 
-globalでもリポジトリ単位でも良いので、git側にユーザー名とメールアドレスも登録するように
+github上の内容と統一を取ること
 
-- <https://docs.github.com/ja/get-started/git-basics/setting-your-username-in-git>
-- <https://docs.github.com/ja/account-and-profile/how-tos/email-preferences/setting-your-commit-email-address>
+```sh
+##### debian(WSL)内で実行 #####
+### 設定
+# プロジェクトルートで実施
+git config user.name "<youruname>"
+git config user.email "<youruname@address>"
 
-### 補足2 devcontainer 内のgitについて
+# 登録内容確認
+git config user.name && git config user.email
+```
 
-- ベースイメージに含まれているためインストール作業は不要
-- `.devcontainer/postCreateCommand.sh` 内で共通のconfig設定が行われている
+## リポジトリ(ローカル)のメンテナンス
+
+```sh
+##### debian(WSL)内で実行 #####
+# devcontainer(別紙参照)内も可
+git reflog expire --expire=now --all && git gc --prune=now --aggressive
+```
+
+### コマンドの簡易解説
+
+- `git reflog expire --expire=now --all`
+  - コマンドミスなどの救済用に残されている履歴(reflog)の削除
+  - `git log --graph` とか git-graph(vscode拡張機能)で表示される線がある程度整理される
+- `git gc  --prune=now --aggressive`
+  - ガベージコレクション
+  - 容量が減る

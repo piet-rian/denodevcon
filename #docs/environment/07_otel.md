@@ -5,7 +5,7 @@
 
 ## 動作確認
 
-```shell
+```sh
 ##### devcontainer内で実行 #####
 # 一行目が `HTTP/1.1 200 OK` なら正常動作
 curl --head http://lgtm:3000/
