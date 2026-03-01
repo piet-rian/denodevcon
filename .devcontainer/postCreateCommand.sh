@@ -38,14 +38,15 @@ cd ${PROJECT_ROOT}
 
 # see. https://git-scm.com/docs/git-config
 # 設定内容は `cat .git/config` をプロジェクトルートで実行することでも確認可能
-git config --local  fetch.prune true
-git config --local  fetch.pruneTags true
-git config --local  log.date iso8601
-git config --local  blame.date iso8601
-git config --local  merge.ff false # 必ずマージコミットを作る
-git config --local  merge.autoStash true
-git config --local  pull.autoStash true
-git config --local  core.longpaths true # パス長すぎ対策
+git config --local fetch.prune true
+git config --local fetch.pruneTags true
+git config --local log.date iso8601
+git config --local blame.date iso8601
+git config --local merge.ff false # mergeする場合は必ずマージコミットを作る
+git config --local pull.ff only # pull は fast-forward 出来る場合のみ
+git config --local merge.autoStash true
+git config --local pull.autoStash true
+git config --local core.longpaths true # パス長すぎ対策
 
 ##### print completion message #####
 echo "postCreateCommand.sh: \033[42m completed. \033[0m"
