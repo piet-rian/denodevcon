@@ -12,22 +12,21 @@
 ### スクリプト内でエラーが発生した場合に即座に終了するためのオプション
 set -e
 
-printf "\033[32m ===== devcontainer のセットアップを開始します。 ===== \033[0m"; printf '%b\n';
-
 ### プロジェクトルートを記録
 # プロジェクトルートでコマンドを実行する必要がある場合に
 # 後述のテンポラリから戻ってくるため
 PROJECT_ROOT=$(pwd)
 
-### 以下、tmp以下のディレクトリで実施する
-POST_CREATE_COMMAND_WORK_DIR=/tmp/dev-container-post-create-user-define-actions
-mkdir ${POST_CREATE_COMMAND_WORK_DIR}
-cd ${POST_CREATE_COMMAND_WORK_DIR}
+printf "\033[32m ===== devcontainer のセットアップを開始します。 ===== \033[0m"; printf '%b\n';
 
-##### 本体部分 #####
+##### 本体部分(apt install, make 相当処理) #####
+### 現時点では feature で事が足りているため何もしない
+### なにかする必要が生じた場合は、tmp以下のディレクトリで作業する(makeなども想定されるため)
 #
-# 現時点では feature などで事が足りているため何もしない
-#
+# # ### 以下、tmp以下のディレクトリで実施する
+# # POST_CREATE_COMMAND_WORK_DIR=/tmp/dev-container-post-create-user-define-actions
+# # mkdir ${POST_CREATE_COMMAND_WORK_DIR}
+# # cd ${POST_CREATE_COMMAND_WORK_DIR}
 ####################
 
 ##### git ローカル設定 #####
