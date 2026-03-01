@@ -12,6 +12,8 @@
 ### スクリプト内でエラーが発生した場合に即座に終了するためのオプション
 set -e
 
+printf "\033[32m ===== devcontainer のセットアップを開始します。 ===== \033[0m"; printf '%b\n';
+
 ### プロジェクトルートを記録
 # プロジェクトルートでコマンドを実行する必要がある場合に
 # 後述のテンポラリから戻ってくるため
@@ -47,8 +49,8 @@ git config --local pull.ff only # ただしpull(fetch+merge(remote))する場合
 git config --local merge.autoStash true
 git config --local pull.autoStash true
 git config --local core.longpaths true # パス長すぎ対策
+printf "git config(local): \033[34m OK \033[0m"; printf '%b\n';
 
 ##### print completion message #####
-printf "postCreateCommand.sh: \033[42m completed. \033[0m"; printf '%b\n';
 printf "\033[32m ===== devcontainer のセットアップが完了しました。 ===== \033[0m"; printf '%b\n';
 exit 0
