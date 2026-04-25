@@ -1,3 +1,6 @@
+# syntax=docker/dockerfile:1
+# check=error=true
+
 # Note: You can use any Debian/Ubuntu based image you want.
 FROM mcr.microsoft.com/devcontainers/base:trixie
 

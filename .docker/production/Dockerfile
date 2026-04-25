@@ -1,3 +1,5 @@
+# syntax=docker/dockerfile:1
+# check=error=true
 ### 本番環境用のDockerイメージを作成するためのDockerfile
 
 ### 定数定義 ###
